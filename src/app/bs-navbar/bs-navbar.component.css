@@ -3,6 +3,17 @@
   font-size: 1.2em;
 }
 
+.dropdown-toggle{
+  cursor: pointer;
+}
+
+.dropdown-menu a{
+  color: black !important;
+  font-weight: normal!important;
+}
+
+
+
 /*
 font-family: 'Lobster', cursive;
 font-family: 'Berkshire Swash', cursive;
