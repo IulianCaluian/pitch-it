@@ -35,11 +35,11 @@ import { MyIdeasComponent } from './my-ideas/my-ideas.component';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent }
-      { path: 'ideas', component: IdeasComponent }
-      { path: 'mentors', component: MentorsComponent }
-      { path: 'login', component: LoginComponent }
-      { path: 'my/ideas', component: MyIdeasComponent }
+      { path: '', component: HomeComponent },
+      { path: 'ideas', component: IdeasComponent },
+      { path: 'mentors', component: MentorsComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'my/ideas', component: MyIdeasComponent },
       { path: 'mentor/mentoring-ideas', component: MentoringIdeasComponent }
     ])
   ],
