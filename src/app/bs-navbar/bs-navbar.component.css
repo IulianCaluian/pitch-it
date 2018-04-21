@@ -1,0 +1,25 @@
+.navbar-brand{
+  font-family: 'Pacifico',cursive;
+  font-size: 1.2em;
+}
+
+/*
+font-family: 'Lobster', cursive;
+font-family: 'Berkshire Swash', cursive;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Sacramento', cursive;
+font-family: 'Bangers', cursive;
+font-family: 'Arsenal', sans-serif;
+font-family: 'Merienda', cursive;
+*/
+
+#top-menu a {
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#top-menu a:hover{
+  color: #dedede;
+}
