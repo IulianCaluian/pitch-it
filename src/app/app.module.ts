@@ -8,6 +8,9 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { MentorAuthGuardService } from './mentor-auth-guard.service';
+import { UserService } from './user.service';
+
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -49,13 +52,15 @@ import { MyIdeasComponent } from './my-ideas/my-ideas.component';
       {
         path: 'mentor/mentoring-ideas',
         component: MentoringIdeasComponent,
-        canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService,MentorAuthGuardService]
       }
     ])
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    MentorAuthGuardService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
