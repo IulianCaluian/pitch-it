@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdeaService } from './../idea.service';
 
 @Component({
   selector: 'app-my-ideas',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-ideas.component.css']
 })
 export class MyIdeasComponent implements OnInit {
+  ideas$;
 
-  constructor() { }
+  constructor(private ideaService:IdeaService) {
+    this.ideas$ = this.ideaService.getAll();
+  }
 
   ngOnInit() {
   }

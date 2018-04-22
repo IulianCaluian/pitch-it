@@ -1,3 +1,14 @@
-<p>
-  my-ideas works!
-</p>
+<div class="card-columns">
+  <div class="card" *ngFor="let idea of ideas$|async">
+    <img class="card-img-top" [src]="idea.imageUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{idea.title}}</h5>
+      <p class="card-text">{{idea.description}}</p>
+      <a [routerLink]="'/ideas/' + idea.$key"  class="btn btn-primary">Edit idea</a>
+    </div>
+
+    <div class="card-footer">
+      <small class="text-muted">Budget: {{idea.budget | currency:'EUR':true }}</small>
+    </div>
+  </div>
+</div>

@@ -10,4 +10,8 @@ export class IdeaService {
   create(idea){
     this.db.list('/ideas').push(idea);
   }
+
+  getAll(){
+    return this.db.list('/ideas');
+  }
 }

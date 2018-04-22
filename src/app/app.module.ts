@@ -50,7 +50,12 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
       { path: 'mentors', component: MentorsComponent },
       { path: 'login', component: LoginComponent },
       {
-        path: 'idea-form',
+        path: 'ideas/new',
+        component: IdeaFormComponent ,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'ideas/:id',
         component: IdeaFormComponent ,
         canActivate: [AuthGuardService]
       },
