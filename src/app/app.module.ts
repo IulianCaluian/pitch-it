@@ -10,6 +10,8 @@ import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MentorAuthGuardService } from './mentor-auth-guard.service';
 import { UserService } from './user.service';
+import { IdeaService } from './idea.service';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -37,6 +39,7 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -67,7 +70,8 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
     AuthService,
     AuthGuardService,
     MentorAuthGuardService,
-    UserService
+    UserService,
+    IdeaService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdeaService } from './../idea.service';
 
 @Component({
   selector: 'app-idea-form',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdeaFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ideaService:IdeaService) { }
+
+  save(idea){
+    this.ideaService.create(idea);
+  }
 
   ngOnInit() {
   }
