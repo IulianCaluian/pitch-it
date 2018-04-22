@@ -18,4 +18,18 @@ export class UserService {
   get(uid: string): FirebaseObjectObservable<AppUser>{
     return this.db.object('/users/' + uid);
   }
+
+  getMentors() {
+    return this.db.list('/users');
+
+  //   let users: AppUser[];
+  //   users = this.db.list('/users');
+  //   let mentors: AppUser[] = {};
+  //
+  //   for(let i=0; i < users.length; i++)
+  //     if(users[i].isMentor)
+  //       mentors.add(users[i]);
+  //   return mentors;
+  }
+
 }
