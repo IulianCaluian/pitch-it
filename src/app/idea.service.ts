@@ -8,10 +8,20 @@ export class IdeaService {
   constructor(private db: AngularFireDatabase) { }
 
   create(idea){
-    this.db.list('/ideas').push(idea);
+    return this.db.list('/ideas').push(idea);
   }
+
+  update(ideaId,idea){
+    return this.db.object('/ideas/'+ideaId).update(idea);
+  }
+
+
 
   getAll(){
     return this.db.list('/ideas');
+  }
+
+  get(ideaId){
+    return this.db.object('/ideas/'+ideaId);
   }
 }
