@@ -7,6 +7,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth'
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -40,12 +41,21 @@ import { MyIdeasComponent } from './my-ideas/my-ideas.component';
       { path: 'ideas', component: IdeasComponent },
       { path: 'mentors', component: MentorsComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'my/ideas', component: MyIdeasComponent },
-      { path: 'mentor/mentoring-ideas', component: MentoringIdeasComponent }
+      {
+        path: 'my/ideas',
+        component: MyIdeasComponent ,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'mentor/mentoring-ideas',
+        component: MentoringIdeasComponent,
+        canActivate: [AuthGuardService]
+      }
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
