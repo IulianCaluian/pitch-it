@@ -26,7 +26,7 @@
           {{appUser.name}}
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" routerLink="">Pitch an idea</a>
+          <a class="dropdown-item" routerLink="idea-form">Pitch an idea</a>
           <a class="dropdown-item" routerLink="my/ideas">My ideas</a>
           <a *ngIf="appUser.isMentor" class="dropdown-item" routerLink="mentor/mentoring-ideas">Mentoring ideas</a>
           <a class="dropdown-item" (click)="logout()">Logout</a>

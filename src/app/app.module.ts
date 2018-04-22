@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { MentoringIdeasComponent } from './mentor/mentoring-ideas/mentoring-ideas.component';
 import { HomeComponent } from './home/home.component';
 import { MyIdeasComponent } from './my-ideas/my-ideas.component';
+import { IdeaFormComponent } from './idea-form/idea-form.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MyIdeasComponent } from './my-ideas/my-ideas.component';
     LoginComponent,
     MentoringIdeasComponent,
     HomeComponent,
-    MyIdeasComponent
+    MyIdeasComponent,
+    IdeaFormComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,11 @@ import { MyIdeasComponent } from './my-ideas/my-ideas.component';
       { path: 'ideas', component: IdeasComponent },
       { path: 'mentors', component: MentorsComponent },
       { path: 'login', component: LoginComponent },
+      {
+        path: 'idea-form',
+        component: IdeaFormComponent ,
+        canActivate: [AuthGuardService]
+      },
       {
         path: 'my/ideas',
         component: MyIdeasComponent ,
