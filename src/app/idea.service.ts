@@ -25,6 +25,15 @@ export class IdeaService {
     return this.db.list('/ideas');
   }
 
+  getAllCurent(owner){
+    return this.db.list('/ideas', {
+    query: {
+      orderByChild: 'owner',
+      equalTo: owner,
+    }
+    });
+  }
+
   get(ideaId){
     return this.db.object('/ideas/'+ideaId);
   }

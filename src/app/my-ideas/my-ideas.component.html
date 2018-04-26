@@ -1,5 +1,5 @@
 <div class="card-deck">
-  <div class="card mb-4" *ngFor="let idea of ideas$|async">
+  <div class="card mb-4" *ngFor="let idea of ideas">
     <img class="card-img-top" height="180px" [src]="idea.imageUrl" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{idea.title}}</h5>
@@ -8,6 +8,8 @@
     </div>
 
     <div class="card-footer">
+      <small class="text-muted">Owner: {{idea.owner.name }}</small>
+      <br/>
       <small class="text-muted">Budget: {{idea.budget | currency:'EUR':true }}</small>
     </div>
   </div>
