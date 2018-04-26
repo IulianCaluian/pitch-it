@@ -15,6 +15,10 @@ export class IdeaService {
     return this.db.object('/ideas/'+ideaId).update(idea);
   }
 
+  delete(ideaId){
+    return this.db.object('/ideas/'+ideaId).remove();
+  }
+
 
 
   getAll(){

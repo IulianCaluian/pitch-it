@@ -10,7 +10,7 @@ import 'rxjs/add/operator/take';
   styleUrls: ['./idea-form.component.css']
 })
 export class IdeaFormComponent implements OnInit {
-  idea = {};
+  idea = <any>{};
   id;
 
   constructor(
@@ -27,8 +27,15 @@ export class IdeaFormComponent implements OnInit {
       this.ideaService.update(this.id,idea);
     else
       this.ideaService.create(idea);
-      
+
     this.router.navigate(['/my/ideas']);
+  }
+
+  delete(){
+    if(confirm('Delete this idea?')) {
+      this.ideaService.delete(this.id);
+      this.router.navigate(['/my/ideas']);
+    }
   }
 
   ngOnInit() {
