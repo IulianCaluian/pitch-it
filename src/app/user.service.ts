@@ -20,16 +20,15 @@ export class UserService {
   }
 
   getMentors() {
-    return this.db.list('/users');
+    let x =  this.db.list('/users', {
+      query: {
+        orderByChild: 'isMentor',
+        equalTo: true,
+      }
+    });
 
-  //   let users: AppUser[];
-  //   users = this.db.list('/users');
-  //   let mentors: AppUser[] = {};
-  //
-  //   for(let i=0; i < users.length; i++)
-  //     if(users[i].isMentor)
-  //       mentors.add(users[i]);
-  //   return mentors;
+console.log(x);
+return x;
   }
 
 }
