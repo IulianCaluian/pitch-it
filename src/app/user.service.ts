@@ -16,7 +16,10 @@ export class UserService {
   }
 
   get(uid: string): FirebaseObjectObservable<AppUser>{
-    return this.db.object('/users/' + uid);
+
+    let x = this.db.object('/users/' + uid);
+    return x;
+
   }
 
   getMentors() {

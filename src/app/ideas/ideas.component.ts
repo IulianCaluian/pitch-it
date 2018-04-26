@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IdeaService } from './../idea.service';
+import { AuthService } from './../auth.service';
+import { AppUser } from './../models/app-user';
 
 @Component({
   selector: 'app-ideas',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdeasComponent implements OnInit {
 
-  constructor() { }
+  ideas: any[];
+
+  constructor(private ideaService:IdeaService,
+  ) {
+     this.ideaService.getAll().subscribe(ideas => {
+       this.ideas = ideas;
+
+     })
+  }
 
   ngOnInit() {
   }
