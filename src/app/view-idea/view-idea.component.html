@@ -1,0 +1,71 @@
+
+<div class="card mb-3">
+  <img class="card-img-top" [src]="idea.imageUrl" alt="Card image cap">
+  <div class="card-body">
+    <h3 class="card-title">{{idea.title}}</h3>
+    <br/>
+    <h4 class="card-title">Description</h4>
+    <p class="card-text">{{idea.description}}</p>
+
+    <br/>
+    <h4 class="card-title">Budget</h4>
+    <p class="card-text">{{idea.budget |  currency:'EUR':true}}</p>
+
+    <br/>
+    <h4 class="card-title">Owner</h4>
+    <p class="card-text">{{idea.owner.name}}</p>
+
+    <br/>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>
+
+
+<!-- Here start the comment section  -->
+<div class="row">
+  <div class="col-sm-12">
+    <h3>User Comments</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container" *ngFor="let comment of comments$|async">
+  		 <div class="media comment-box">
+              <div class="media-left">
+                  <a href="#">
+                      <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                  </a>
+              </div>
+              <div class="media-body">
+                  <h4 class="media-heading">{{comment.user}}</h4>
+                  <p>{{comment.comment}}</p>
+
+              </div>
+          </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container" *ngIf="appUser; else buttonLogin">
+  		 <div class="media comment-box">
+              <div class="media-left">
+                  <a href="#">
+                      <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                  </a>
+              </div>
+              <div class="media-body">
+                  <h4 class="media-heading">{{appUser.name}}</h4>
+                  <form #f="ngForm" (ngSubmit)="saveComment(f.value); com.value=''; com.focus()" style="margin-top:3px">
+                    <div class="form-group">
+                      <textarea #com ngModel name="comment" class="form-control" id="comment" rows="5" placeholder="Your comment" required></textarea>
+                    </div>
+                    <button class="btn btn-primary">Post comment</button>
+                  </form>
+              </div>
+          </div>
+  </div>
+
+  <ng-template #buttonLogin>
+    <a style="margin:10px; margin-left:40px;" href="#" class="btn btn-primary">Login to comment</a>
+  </ng-template>
+</div>

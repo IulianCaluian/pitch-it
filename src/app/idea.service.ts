@@ -11,6 +11,10 @@ export class IdeaService {
     return this.db.list('/ideas').push(idea);
   }
 
+  addComment(ideaId,comment){
+    return this.db.list('/ideas/'+ideaId+'/comments').push(comment);
+  }
+
   update(ideaId,idea){
     return this.db.object('/ideas/'+ideaId).update(idea);
   }
@@ -36,5 +40,9 @@ export class IdeaService {
 
   get(ideaId){
     return this.db.object('/ideas/'+ideaId);
+  }
+
+  getComments(ideaId){
+    return this.db.list('/ideas/'+ideaId+'/comments');
   }
 }

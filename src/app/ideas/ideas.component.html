@@ -4,7 +4,9 @@
       <img class="card-img-top" height="180px" [src]="idea.imageUrl" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{idea.title}}</h5>
-        <p class="card-text">{{idea.description}}</p>
+        <p class="card-text">{{idea.description | summary:60}}
+          <a [routerLink]="'/ideas/' + idea.$key"  >...see more</a>
+        </p>
       </div>
 
       <div class="card-footer">

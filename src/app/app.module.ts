@@ -23,6 +23,9 @@ import { MentoringIdeasComponent } from './mentor/mentoring-ideas/mentoring-idea
 import { HomeComponent } from './home/home.component';
 import { MyIdeasComponent } from './my-ideas/my-ideas.component';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
+import { SummaryPipe } from './summary.pipe';
+import { ViewIdeaComponent } from './view-idea/view-idea.component';
+import { ReversePipe } from './reverse.pipe';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
     MentoringIdeasComponent,
     HomeComponent,
     MyIdeasComponent,
-    IdeaFormComponent
+    IdeaFormComponent,
+    SummaryPipe,
+    ViewIdeaComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,10 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
       },
       {
         path: 'ideas/:id',
+        component: ViewIdeaComponent 
+      },
+      {
+        path: 'ideas/edit/:id',
         component: IdeaFormComponent ,
         canActivate: [AuthGuardService]
       },
