@@ -1,7 +1,13 @@
+img{
+  height: 36px;
+}
+
 .navbar-brand{
   font-family: 'Pacifico',cursive;
   font-size: 1.2em;
 }
+
+
 
 .dropdown-toggle{
   cursor: pointer;

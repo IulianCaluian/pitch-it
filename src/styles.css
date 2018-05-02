@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "bootstrap2.css";
 @import url('https://fonts.googleapis.com/css?family=Arsenal|Bangers|Berkshire+Swash|Pacifico|Kaushan+Script|Lobster|Merienda|Permanent+Marker|Sacramento');
 
 body{
