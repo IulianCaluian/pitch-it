@@ -57,13 +57,13 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: ProfileComponent },
+      { path: '', component: HomeComponent },
       { path: 'ideas', component: IdeasComponent },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'edit-profile', component: ProfileEditComponent },
       { path: 'mentors', component: MentorsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent},
+      { path: 'profile/:id', component: ProfileComponent },
+      { path: 'edit-profile/:id', component: ProfileEditComponent },
       {
         path: 'ideas/new',
         component: IdeaFormComponent ,

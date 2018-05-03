@@ -1,40 +1,112 @@
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-block">
         <div class="row">
-          <div class="col-md-4 col-sm-4 text-center" >
-            <img id="profile_img" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="" class="btn-md">
+
+
+          <div class="col-md-4 col-sm-4 text-center" id="other_sites" >
+            <img id="profile_img" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="" class="btn-md image-responsive image-fluid col-md-12">
+            <div class="col-md-12 text-center">
+            <div class="col-md-12 col-sm-4 text-center">
+              <button id="facebook_link" class="  btn btn-primary btn-block btn-md"><span class="fa fa-facebook-square"></span> Like  </button>
+            </div>
+
+            <div class="col-md-12 col-sm-4 text-center">
+              <button id="twitter-link" class="btn btn-success btn-block btn-md"><span class="fa fa-twitter-square"></span> Tweet </button>
+            </div>
+
+            <div class="col-md-12 col-sm-4 text-center">
+              <button type="button" class="btn btn-danger btn-block btn-md"><span class="fa fa-google-plus-square"></span> Follow </button>
+            </div>
+
+              <div id="edit-profile" class="col-md-12 col-sm-4 text-center">
+                <a  [routerLink]="'/edit-profile/'+ id" >editeaza profilul</a>
+              </div>
+            </div>
           </div>
+
+
+
+
+
+
           <div class="col-md-8 col-sm-8">
-            <h2 class="card-title">Stffanie Osterich</h2>
-            <p class="card-text"><strong>Profile: </strong> Web Developer </p>
-            <p class="card-text"><strong>Skills: </strong> Theme, plugin and website development </p>
-            <p><strong>Platform: </strong>
-              <span class="badge bg-primary">WordPress</span>
-              <span class="badge bg-info">Weebly</span>
-              <span class="badge bg-warning">Bootstrap</span>
-              <span class="badge bg-success">Wix</span>
+            <br>
+            <h2 class="card-title">{{pathUser.name}}</h2>
+            <br>
+            <p class="card-text" *ngIf="pathUser.primary_occupation"><strong>Profile: </strong> {{pathUser.primary_occupation}} </p>
+            <p class="card-text" *ngIf="pathUser.skills"><strong>Skills: </strong> {{pathUser.skills}} </p>
+            <p *ngIf="pathUser.overview"><strong>Platform: </strong>
+              {{pathUser.overview}}
             </p>
+
+
+
+            <!-- date_of_birth*
+          email_address*
+          gender*
+          languages_known
+          married*
+          permanent_address*
+          phone_number*
+          primary_occupation
+          secondary_occupation
+          temporary_address*
+          working_experience -->
+
+            <table class="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td>Primary occupation</td>
+                          <td>{{(pathUser.primary_occupation)?pathUser.primary_occupation:'-'}}</td>
+                        </tr>
+                        <tr>
+                          <td>Secondary occupation</td>
+                          <td>{{(pathUser.secondary_occupation)?pathUser.secondary_occupation:'-'}}</td>
+                        </tr>
+
+                        <tr>
+                          <td>Working experience</td>
+                          <td>{{(pathUser.working_experience)?pathUser.working_experience:'-'}}</td>
+                        </tr>
+                        <tr>
+                          <td>Date of Birth</td>
+                          <td>{{(pathUser.date_of_birth)?pathUser.date_of_birth:'-'}}</td>
+                        </tr>
+                        <tr>
+                          <td>Gender</td>
+                          <td>{{(pathUser.gender)?((pathUser.gender==1)?"Male":"Female"):"Unknown"}}</td>
+                        </tr>
+                        <tr>
+                          <td>Married</td>
+                          <td>{{ (pathUser.married==1)?"Married":"Unmarried" }}</td>
+                        </tr>
+                          <tr>
+                          <td>Permanent Address</td>
+                          <td>{{(pathUser.permanent_address)?pathUser.permanent_address:'-'}}</td>
+                        </tr>
+                        <tr>
+                        <td>Temporary Address</td>
+                        <td>{{(pathUser.temporary_address)?pathUser.temporary_address:'-'}}</td>
+                      </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td><a href="mailto:info@support.com">{{(pathUser.email_address)?pathUser.email_address:'-'}}</a></td>
+                        </tr>
+                          <tr><td>Phone Number</td>
+                          <td>{{(pathUser.phone_number)?pathUser.phone_number:'-'}}
+                          </td>
+
+                        </tr>
+
+                      </tbody>
+                    </table>
           </div>
-          <div class="col-md-4 col-sm-4 text-center">
-            <h2><strong> 5.2K </strong></h2>
-            <p><small>Fans</small></p>
-            <button class="btn btn-primary btn-block btn-md"><span class="fa fa-facebook-square"></span> Like  </button>
-          </div>
-          <div class="col-md-4 col-sm-4 text-center">
-            <h2><strong>1.4K</strong></h2>
-            <p><small>Following</small></p>
-            <button class="btn btn-success btn-block btn-md"><span class="fa fa-twitter-square"></span> Tweet </button>
-          </div>
-          <div class="col-md-4 col-sm-4 text-center">
-            <h2><strong>3.8K</strong></h2>
-            <p><small>Followers</small></p>
-            <button type="button" class="btn btn-danger btn-block btn-md"><span class="fa fa-google-plus-square"></span> Follow </button>
-          </div>
-          <a routerLink="edit-profile" class="btn btn-primary">Editeaza profilul</a>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

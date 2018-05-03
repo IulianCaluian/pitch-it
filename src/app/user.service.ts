@@ -15,6 +15,10 @@ export class UserService {
     });
   }
 
+  update(userId,user){
+    return this.db.object('/users/'+userId).update(user);
+  }
+
   get(uid: string): FirebaseObjectObservable<AppUser>{
 
     let x = this.db.object('/users/' + uid);
