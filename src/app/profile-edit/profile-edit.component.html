@@ -1,0 +1,264 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<div class="container">
+  <h1>Edit Profile</h1>
+  <hr>
+  <div class="row">
+
+
+
+    <div class="col-md-10 ">
+      <form #f="ngForm" class="form-horizontal" (ngSubmit)="update(f.value);">
+        <fieldset>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Name (Full name)</label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <input ngModel id="name" name="name" type="text" placeholder="Name (Full name)" class="form-control input-md">
+              </div>
+            </div>
+          </div>
+
+
+          <!-- <div class="form-group">
+            <label class="col-md-4 control-label" for="Upload photo">Upload photo</label>
+            <div class="col-md-4">
+              <input id="Upload photo" name="Upload photo" class="input-file" type="file">
+            </div>
+          </div> -->
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="date_of_birth">Date Of Birth</label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-birthday-cake"></i>
+                </div>
+                <input ngModel id="date_of_birth" name="date_of_birth" type="text" placeholder="Date of birth" class="form-control input-md">
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="Gender">Gender</label>
+            <div class="col-md-4">
+              <label class="radio-inline" for="Gender-0">
+                <input ngModel type="radio" name="Gender" id="Gender-0" value="1" checked="checked">
+              Male
+              </label>
+              <label class="radio-inline" for="Gender-1">
+                <input ngModel type="radio" name="Gender" id="Gender-1" value="2">
+                Female
+              </label>
+              <label class="radio-inline" for="Gender-2">
+              <input ngModel type="radio" name="Gender" id="Gender-2" value="3">
+              Other
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="radios">Marital Status:</label>
+            <div class="col-md-4">
+              <label class="radio-inline" for="r-married">
+      <input ngModel type="radio" name="married" id="r-married" value="1" checked="checked">
+      Married
+    </label>
+              <label class="radio-inline" for="r-unmarried">
+      <input ngModel type="radio" name="married" id="r-unmarried" value="2">
+      Unmarried
+    </label>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="temporary_address">Temporary Address</label>
+            <div class="col-md-8">
+
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-home" style="font-size:20px;"></i>
+
+                </div>
+                <input ngModel id="temporary_address" name="temporary_address" type="text" placeholder="Temporary Address" class="form-control input-md">
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="permanent_address">Permanent Address</label>
+            <div class="col-md-8">
+
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-home" style="font-size:20px;"></i>
+
+                </div>
+                <input ngModel id="permanent_address" name="permanent_address" type="text" placeholder="Permanent Address" class="form-control input-md">
+              </div>
+
+
+            </div>
+          </div>
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="primary_occupation">Primary Occupation</label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-briefcase"></i>
+
+                </div>
+                <input ngModel id="primary_occupation" name="primary_occupation" type="text" placeholder="Primary Occupation" class="form-control input-md">
+              </div>
+
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="secondary_occupation">Secondary Occupation (if any)</label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-briefcase"></i>
+
+                </div>
+                <input ngModel id="secondary_occupation" name="secondary_occupation" type="text" placeholder="Secondary Occupation (if any)" class="form-control input-md">
+              </div>
+
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="skills">Skills</label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-graduation-cap"></i>
+
+                </div>
+                <input ngModel id="skills" name="skills" type="text" placeholder="Skills" class="form-control input-md">
+              </div>
+
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="phone_number">Phone number </label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-phone"></i>
+
+                </div>
+                <input ngModel id="phone_number" name="phone_number" type="text" placeholder="Primary Phone number " class="form-control input-md">
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="email_address">Email Address</label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-envelope-o"></i>
+
+                </div>
+                <input ngModel id="email_address" name="email_address" type="text" placeholder="Email Address" class="form-control input-md">
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <!-- Multiple Checkboxes -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="languages_known">Languages Known</label>
+            <div class="col-md-8">
+              <div class="checkbox">
+                <label for="languages_known-1">
+      <input ngModel type="checkbox" name="languages_known" id="languages_known-1" value="1">
+      English
+    </label>
+              </div>
+              <div class="checkbox">
+                <label for="languages_known-2">
+      <input ngModel type="checkbox" name="languages_known" id="languages_known-2" value="2">
+      French
+    </label>
+              </div>
+              <div class="checkbox">
+                <label for="languages_known-3">
+        <input ngModel type="checkbox" name="languages_known" id="languages_known-3" value="3">
+        Romanian
+      </label>
+              </div>
+
+
+
+            </div>
+          </div>
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="working_experience">Working Experience (time period)</label>
+            <div class="col-md-8">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-clock-o"></i>
+
+                </div>
+                <input ngModel id="working_experience" name="working_experience" type="text" placeholder="Enter time period " class="form-control input-md">
+
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="overview">Overview (max 200 words)</label>
+            <div class="col-md-8">
+              <textarea ngModel name="overview" class="form-control" rows="10" id="overview" name="Overview (max 200 words)">Overview</textarea>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+              <button class="btn btn-info">Save changes</button>
+              <a  class="btn btn-danger" type="button"> Clear</a>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+</div>

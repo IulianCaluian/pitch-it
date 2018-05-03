@@ -27,6 +27,8 @@ import { SummaryPipe } from './summary.pipe';
 import { ViewIdeaComponent } from './view-idea/view-idea.component';
 import { ReversePipe } from './reverse.pipe';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { RegisterComponent } from './register/register.component';
     SummaryPipe,
     ViewIdeaComponent,
     ReversePipe,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +57,10 @@ import { RegisterComponent } from './register/register.component';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: ProfileComponent },
       { path: 'ideas', component: IdeasComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'edit-profile', component: ProfileEditComponent },
       { path: 'mentors', component: MentorsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent},
