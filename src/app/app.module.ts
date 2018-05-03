@@ -26,6 +26,7 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { SummaryPipe } from './summary.pipe';
 import { ViewIdeaComponent } from './view-idea/view-idea.component';
 import { ReversePipe } from './reverse.pipe';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ReversePipe } from './reverse.pipe';
     IdeaFormComponent,
     SummaryPipe,
     ViewIdeaComponent,
-    ReversePipe
+    ReversePipe,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { ReversePipe } from './reverse.pipe';
       { path: 'ideas', component: IdeasComponent },
       { path: 'mentors', component: MentorsComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent},
       {
         path: 'ideas/new',
         component: IdeaFormComponent ,
@@ -62,7 +65,7 @@ import { ReversePipe } from './reverse.pipe';
       },
       {
         path: 'ideas/:id',
-        component: ViewIdeaComponent 
+        component: ViewIdeaComponent
       },
       {
         path: 'ideas/edit/:id',

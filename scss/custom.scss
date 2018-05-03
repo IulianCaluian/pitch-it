@@ -1,0 +1,10 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+//mine:
+$theme-colors: (
+  "primary": #f4a442,
+  "danger": #97f73d
+);
+
+//bootstrap var
+@import "node_modules/bootstrap/scss/bootstrap";
