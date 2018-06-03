@@ -1,4 +1,5 @@
-import { environment } from './../environments/environment'
+import { environment } from './../environments/environment';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
@@ -50,6 +51,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     ProfileEditComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
