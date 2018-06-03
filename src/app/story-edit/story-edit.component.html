@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <form #f="ngForm" (ngSubmit)="save(f.value)">
+
+        <div class="form-group">
+          <label for="story">Story</label>
+          <textarea #story (ngModel)="story" name="story" class="form-control" id="story" rows="5" placeholder="..." required></textarea>
+          <div class="alert alert-danger" *ngIf="story.touched && story.invalid">The sotry is required</div>
+        </div>
+
+
+        <button class="btn btn-primary">Create story!</button>
+      </form>
+    </div>

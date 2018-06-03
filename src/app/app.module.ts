@@ -33,6 +33,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { NewsComponent } from './news/news.component';
 import { StoryComponent } from './story/story.component';
 import { ViewIdeaEditComponent } from './view-idea-edit/view-idea-edit.component';
+import { StoryEditComponent } from './story-edit/story-edit.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ViewIdeaEditComponent } from './view-idea-edit/view-idea-edit.component
     ProfileEditComponent,
     NewsComponent,
     StoryComponent,
-    ViewIdeaEditComponent
+    ViewIdeaEditComponent,
+    StoryEditComponent
   ],
   imports: [
     HttpModule,
@@ -87,7 +89,11 @@ import { ViewIdeaEditComponent } from './view-idea-edit/view-idea-edit.component
         path: 'ideas/edit-view/:id',
         component: ViewIdeaEditComponent ,
         canActivate: [AuthGuardService]
-      }
+      },
+      {
+        path: 'story-edit/:id',
+        component:StoryEditComponent
+      },
       {
         path: 'ideas/edit/:id',
         component: IdeaFormComponent ,

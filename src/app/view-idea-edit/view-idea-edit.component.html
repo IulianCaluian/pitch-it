@@ -11,7 +11,7 @@
       </i>
     </a>
 
-    <a [routerLink]="'/ideas/edit/' + idea.$key"  class="btn btn-info">
+    <a [routerLink]="'/story-edit/' + idea.$key"  class="btn btn-info">
     Write a story!
     <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
       <i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -36,3 +36,94 @@
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
   </div>
 </div>
+
+
+<div id = "containerStories">
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Recent stories</h2>
+  </div>
+</div>
+
+
+<div class="card story-card" *ngFor="let story of stories$|async">
+  <div class="card-header">
+    <h4 class="media-heading">{{story.user}}</h4>
+    <h6 class="text-muted"> {{story.date}} </h6>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{story.story}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    <div style="margin:8px">
+    <span style="color:green">{{story.ups}} Ups</span>
+    /
+    <span style="color:red">{{story.downs}} Downs</span>
+  </div>
+    <div>
+    <a class="btn icon-btn btn-success" (click)="upExecute(story)">
+    Up
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+    </a>
+
+    <a class="btn icon-btn btn-danger" (click)="downExecute(story)">
+    Down
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+    <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+    </a>
+    <a class="btn icon-btn btn-info">
+    Comment
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+    <i class="fa fa-comments" aria-hidden="true"></i>
+    </a>
+  </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Here start the comment section  -->
+<div class="row">
+  <div class="col-sm-12">
+    <h2>User Comments</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container" *ngFor="let comment of comments$|async">
+  		 <div class="media comment-box">
+              <div class="media-left">
+                  <a href="#">
+                      <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                  </a>
+              </div>
+              <div class="media-body">
+                  <h4 class="media-heading">{{comment.user}}</h4>
+                  <p>{{comment.comment}}</p>
+
+              </div>
+          </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container" *ngIf="appUser; else buttonLogin">
+  		 <div class="media comment-box">
+              <div class="media-left">
+                  <a href="#">
+                      <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                  </a>
+              </div>
+              <div class="media-body">
+                  <h4 class="media-heading">{{appUser.name}}</h4>
+                  <form #f="ngForm" (ngSubmit)="saveComment(f.value); com.value=''; com.focus()" style="margin-top:3px">
+                    <div class="form-group">
+                      <textarea #com ngModel name="comment" class="form-control" id="comment" rows="5" placeholder="Your comment" required></textarea>
+                    </div>
+                    <button class="btn btn-primary">Post comment</button>
+                  </form>
+              </div>
+          </div>
+  </div>

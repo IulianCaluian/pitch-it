@@ -15,8 +15,16 @@ export class IdeaService {
     return this.db.list('/ideas/'+ideaId+'/comments').push(comment);
   }
 
+  addStory(ideaId,story){
+    return this.db.list('/ideas/'+ideaId+'/stories').push(story);
+  }
+
   update(ideaId,idea){
     return this.db.object('/ideas/'+ideaId).update(idea);
+  }
+
+  updateStory(ideaId,storyId,story){
+    return this.db.object('ideas/'+ideaId+'/stories/'+storyId).update(story);
   }
 
   delete(ideaId){
@@ -44,5 +52,9 @@ export class IdeaService {
 
   getComments(ideaId){
     return this.db.list('/ideas/'+ideaId+'/comments');
+  }
+
+  getStories(ideaId){
+    return this.db.list('/ideas/'+ ideaId+ '/stories');
   }
 }

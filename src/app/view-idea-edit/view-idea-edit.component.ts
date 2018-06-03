@@ -16,6 +16,7 @@ import 'rxjs/add/operator/map';
 export class ViewIdeaEditComponent implements OnInit {
   idea = <any>{};
   comments$ ;
+  stories$;
   id;
   appUser: AppUser = null;
   user;
@@ -32,23 +33,33 @@ export class ViewIdeaEditComponent implements OnInit {
           this.user = user;
       }});
 
-    this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) this.ideaService.get(this.id).take(1).subscribe(i => this.idea = i);
-    if (this.id) this.comments$ = this.ideaService.getComments(this.id);
+      this.id = this.route.snapshot.paramMap.get('id');
+      if (this.id) this.ideaService.get(this.id).take(1).subscribe(i => this.idea = i);
+      if (this.id) this.comments$ = this.ideaService.getComments(this.id);
+      if (this.id) this.stories$ = this.ideaService.getStories(this.id);
   }
 
-  saveComment(comment){
-    comment.user = this.appUser.name;// TODO: nu ar trebui salvat complet - de modificat ulterior REDUNDAN
-  //  idea.owner2 = this.user;
-  console.log(comment);
-  if(this.id)
-     this.ideaService.addComment(this.id,comment);
+saveComment(comment){
+  comment.user = this.appUser.name;// TODO: nu ar trebui salvat complet - de modificat ulterior REDUNDAN
+//  idea.owner2 = this.user;
+console.log(comment);
+if(this.id)
+   this.ideaService.addComment(this.id,comment);
 
-  }
+}
 
+upExecute(story){
+  story.ups = story.ups + 1;
+  this.ideaService.updateStory(this.id,story.$key,story);
+}
 
-  ngOnInit() {
-  }
+downExecute(story){
+  story.downs = story.downs + 1;
+  this.ideaService.updateStory(this.id,story.$key,story);
+}
+
+ngOnInit() {
+}
 
 
 }

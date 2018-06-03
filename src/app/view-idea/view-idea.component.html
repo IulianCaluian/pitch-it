@@ -1,4 +1,4 @@
-
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="card mb-3">
   <img class="card-img-top" [src]="idea.imageUrl" alt="Card image cap">
   <div class="card-body">
@@ -21,10 +21,56 @@
 </div>
 
 
+<div id = "containerStories">
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Recent stories</h2>
+  </div>
+</div>
+
+
+<div class="card story-card" *ngFor="let story of stories$|async">
+  <div class="card-header">
+    <h4 class="media-heading">{{story.user}}</h4>
+    <h6 class="text-muted"> {{story.date}} </h6>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{story.story}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    <div style="margin:8px">
+    <span style="color:green">{{story.ups}} Ups</span>
+    /
+    <span style="color:red">{{story.downs}} Downs</span>
+  </div>
+    <div>
+    <a class="btn icon-btn btn-success" (click)="upExecute(story)">
+    Up
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+    </a>
+
+    <a class="btn icon-btn btn-danger" (click)="downExecute(story)">
+    Down
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+    <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
+    </a>
+    <a class="btn icon-btn btn-info">
+    Comment
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+    <i class="fa fa-comments" aria-hidden="true"></i>
+    </a>
+  </div>
+  </div>
+</div>
+
+</div>
+
 <!-- Here start the comment section  -->
 <div class="row">
   <div class="col-sm-12">
-    <h3>User Comments</h3>
+    <h2>User Comments</h2>
   </div>
 </div>
 
