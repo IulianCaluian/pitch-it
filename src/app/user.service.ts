@@ -34,10 +34,10 @@ export class UserService {
 
   getMentors() {
     //lista = null;
-  return this.http.get('http://localhost:8080/pitch-it/users');
+  //return this.http.get('http://localhost:8080/pitch-it/users');
 
-  // let x =  this.db.list('/users');
-  //   return x;
+  let x =  this.db.list('/users');
+  return x;
   }
 
 }
