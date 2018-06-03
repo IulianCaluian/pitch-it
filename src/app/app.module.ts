@@ -30,6 +30,7 @@ import { ReversePipe } from './reverse.pipe';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { NewsComponent } from './news/news.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     ReversePipe,
     RegisterComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    NewsComponent
   ],
   imports: [
     HttpModule,
@@ -69,6 +71,11 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
       {
         path: 'ideas/new',
         component: IdeaFormComponent ,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'news',
+        component: NewsComponent ,
         canActivate: [AuthGuardService]
       },
       {

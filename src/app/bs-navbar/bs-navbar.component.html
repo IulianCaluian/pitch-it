@@ -12,17 +12,23 @@
       <li class="nav-item ">
         <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item" *ngIf="appUser">
+        <a class="nav-link" routerLink="/news">News</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/ideas">Ideas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/mentors">Mentors</a>
       </li>
+
       <ng-template #anonymousUser>
         <li class="nav-item">
           <a class="nav-link" routerLink="/login">Login</a>
         </li>
       </ng-template>
+
+
 
       <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
