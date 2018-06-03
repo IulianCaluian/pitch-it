@@ -1,0 +1,38 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="card mb-3">
+  <img class="card-img-top" [src]="idea.imageUrl" alt="Card image cap">
+  <div class="card-body">
+    <h3 class="card-title">{{idea.title}}</h3>
+
+    <a [routerLink]="'/ideas/edit/' + idea.$key"  class="btn btn-primary">
+    Edit idea
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+      <i class="fa fa-pencil-square-o" aria-hidden="true">
+      </i>
+    </a>
+
+    <a [routerLink]="'/ideas/edit/' + idea.$key"  class="btn btn-info">
+    Write a story!
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </a>
+
+
+
+
+    <br/>
+    <h4 class="card-title">Description</h4>
+    <p class="card-text">{{idea.description}}</p>
+
+    <br/>
+    <h4 class="card-title">Budget</h4>
+    <p class="card-text">{{idea.budget |  currency:'EUR':true}}</p>
+
+    <br/>
+    <h4 class="card-title">Owner</h4>
+    <p class="card-text">{{idea.owner.name}}</p>
+
+    <br/>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
+</div>

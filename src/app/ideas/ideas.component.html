@@ -1,3 +1,6 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
 <div class="card-deck">
   <ng-container *ngFor="let idea of ideas; let i = index">
     <div class="card mb-4" style="max-width: 24rem;">
@@ -5,8 +8,17 @@
       <div class="card-body">
         <h5 class="card-title">{{idea.title}}</h5>
         <p class="card-text">{{idea.description | summary:60}}
-          <a [routerLink]="'/ideas/' + idea.$key"  >...see more</a>
         </p>
+
+        <a class="btn icon-btn btn-success" [routerLink]="'/ideas/' + idea.$key">
+        Explore!
+        <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+          <i class="fa fa-chevron-circle-right" aria-hidden="true">  
+          </i>
+        </a>
+
+
+
       </div>
 
       <div class="card-footer">

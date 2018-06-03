@@ -22,6 +22,20 @@ img{
   margin-right: 60px;
 }
 
+/* .navbar-nav li:not(:last-child){
+    border-right: 2px solid skyblue;
+    -webkit-border-image:
+  -webkit-gradient(linear, 0 100%, 0 0, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+-webkit-border-image:
+  -webkit-linear-gradient(right, white, rgba(0, 0, 0, 0)) 1 100%;
+-moz-border-image:
+  -moz-linear-gradient(right, white, rgba(0, 0, 0, 0)) 1 100%;
+-o-border-image:
+  -o-linear-gradient(right, white, rgba(0, 0, 0, 0)) 1 100%;
+border-image:
+  linear-gradient(to left, white, rgba(0, 0, 0, 0)) 1 100%;
+} */
+
 
 
 /*

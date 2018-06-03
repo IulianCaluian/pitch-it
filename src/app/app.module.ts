@@ -31,6 +31,8 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { NewsComponent } from './news/news.component';
+import { StoryComponent } from './story/story.component';
+import { ViewIdeaEditComponent } from './view-idea-edit/view-idea-edit.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { NewsComponent } from './news/news.component';
     RegisterComponent,
     ProfileComponent,
     ProfileEditComponent,
-    NewsComponent
+    NewsComponent,
+    StoryComponent,
+    ViewIdeaEditComponent
   ],
   imports: [
     HttpModule,
@@ -66,6 +70,7 @@ import { NewsComponent } from './news/news.component';
       { path: 'mentors', component: MentorsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent},
+      { path: 'story/:id', component: StoryComponent},
       { path: 'profile/:id', component: ProfileComponent },
       { path: 'edit-profile/:id', component: ProfileEditComponent },
       {
@@ -79,14 +84,20 @@ import { NewsComponent } from './news/news.component';
         canActivate: [AuthGuardService]
       },
       {
-        path: 'ideas/:id',
-        component: ViewIdeaComponent
-      },
+        path: 'ideas/edit-view/:id',
+        component: ViewIdeaEditComponent ,
+        canActivate: [AuthGuardService]
+      }
       {
         path: 'ideas/edit/:id',
         component: IdeaFormComponent ,
         canActivate: [AuthGuardService]
       },
+      {
+        path: 'ideas/:id',
+        component: ViewIdeaComponent
+      },
+
       {
         path: 'my/ideas',
         component: MyIdeasComponent ,

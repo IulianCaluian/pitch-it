@@ -3,19 +3,21 @@ import { IdeaService } from './../idea.service';
 import { AppUser } from './../models/app-user';
 import { AuthService } from './../auth.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { Observable } from "rxjs/Rx"
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 
 
 @Component({
-  selector: 'app-idea-form',
-  templateUrl: './idea-form.component.html',
-  styleUrls: ['./idea-form.component.css']
+  selector: 'app-view-idea-edit',
+  templateUrl: './view-idea-edit.component.html',
+  styleUrls: ['./view-idea-edit.component.css']
 })
-export class IdeaFormComponent implements OnInit {
+export class ViewIdeaEditComponent implements OnInit {
   idea = <any>{};
+  comments$ ;
   id;
-  appUser: AppUser;
+  appUser: AppUser = null;
   user;
 
   constructor(
@@ -31,34 +33,22 @@ export class IdeaFormComponent implements OnInit {
       }});
 
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) this.ideaService.get(this.id).take(1).subscribe(i => this.idea = i)
+    if (this.id) this.ideaService.get(this.id).take(1).subscribe(i => this.idea = i);
+    if (this.id) this.comments$ = this.ideaService.getComments(this.id);
   }
 
-  save(idea){
-    idea.owner = this.appUser;// TODO: nu ar trebui salvat complet - de modificat ulterior REDUNDAN
+  saveComment(comment){
+    comment.user = this.appUser.name;// TODO: nu ar trebui salvat complet - de modificat ulterior REDUNDAN
   //  idea.owner2 = this.user;
-  console.log(idea);
-    if(this.id){
-      this.ideaService.update(this.id,idea);
-      this.router.navigate(['ideas/edit-view/'+this.id]);
-    }
-
-    else {
-      this.ideaService.create(idea);
-      this.router.navigate(['/my/ideas']);
-    }
-
+  console.log(comment);
+  if(this.id)
+     this.ideaService.addComment(this.id,comment);
 
   }
 
-  delete(){
-    if(confirm('Delete this idea?')) {
-      this.ideaService.delete(this.id);
-      this.router.navigate(['/my/ideas']);
-    }
-  }
 
   ngOnInit() {
   }
+
 
 }
