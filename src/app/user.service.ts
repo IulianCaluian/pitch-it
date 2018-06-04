@@ -25,6 +25,23 @@ export class UserService {
     return this.db.object('/users/'+userId).update(user);
   }
 
+  pushFollow(userId,follow){
+    this.db.list('/users/'+userId+'/follows').push(follow);
+  }
+
+  deleteFollow(userId,follow) {
+    this.db.list('/users/'+userId+'/follows/'+follow).remove();
+  }
+
+  updateFollows(userId,follows){
+    return this.db.object('/users/'+userId+'/follows').update(follows);
+  }
+
+  getFollows(userId){
+    let x =  this.db.list('/users/'+userId+'/follows');
+    return x;
+  }
+
   get(uid: string): FirebaseObjectObservable<AppUser>{
 
     let x = this.db.object('/users/' + uid);

@@ -3,7 +3,19 @@
   <img class="card-img-top" [src]="idea.imageUrl" alt="Card image cap">
   <div class="card-body">
     <h3 class="card-title">{{idea.title}}</h3>
-    <br/>
+
+    <a  (click) = "followS()" *ngIf="!follow" class="btn btn-info icon-btn">
+    Follow
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+      <i class="fa fa-paperclip" aria-hidden="true"></i>
+    </a>
+
+    <a (click) = "unfollowS()" *ngIf="follow" class="btn btn-success icon-btn">
+    Following
+    <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+    <i class="fa fa-check" aria-hidden="true"></i>
+    </a>
+
     <h4 class="card-title">Description</h4>
     <p class="card-text">{{idea.description}}</p>
 

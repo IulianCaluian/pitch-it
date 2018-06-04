@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IdeaService } from './../idea.service';
 import { AppUser } from './../models/app-user';
 import { AuthService } from './../auth.service';
+import { UserService } from './../user.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs/Rx"
 import 'rxjs/add/operator/take';
@@ -15,9 +16,11 @@ import 'rxjs/add/operator/map';
 })
 export class ViewIdeaComponent implements OnInit {
   idea = <any>{};
+  follow = false;
   comments$ ;
   stories$;
   id;
+  mySubscription;
   appUser: AppUser = null;
   user;
 
@@ -25,7 +28,8 @@ export class ViewIdeaComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private ideaService:IdeaService,
-    private authService:AuthService
+    private authService:AuthService,
+    private userService:UserService
   ) {
     authService.AppUser$.subscribe(appUser => this.appUser=appUser);
     this.authService.user$.subscribe(user => {
@@ -37,6 +41,10 @@ export class ViewIdeaComponent implements OnInit {
     if (this.id) this.ideaService.get(this.id).take(1).subscribe(i => this.idea = i);
     if (this.id) this.comments$ = this.ideaService.getComments(this.id);
     if (this.id) this.stories$ = this.ideaService.getStories(this.id);
+
+
+
+
   }
 
   saveComment(comment){
@@ -58,8 +66,43 @@ export class ViewIdeaComponent implements OnInit {
     this.ideaService.updateStory(this.id,story.$key,story);
   }
 
+  followS(){
+    if(this.mySubscription)
+      this.mySubscription.unsubscribe();
+    this.follow=true;
+    this.userService.pushFollow(this.appUser.$key,this.id);
+  }
+
+  unfollowS(){
+    this.follow=false;
+
+    this.mySubscription = this.userService.getFollows(this.appUser.$key).subscribe(
+      lista => {
+        for(let i=0;i<lista.length;i++){
+            if(lista[i].$value == this.id){
+                this.userService.deleteFollow(this.appUser.$key,lista[i].$key);
+                break;
+              }
+        }
+      }
+    );
+
+  //  this.userService.deleteFollow(this.appUser.$key,this.id);
+
+  }
+
 
   ngOnInit() {
+    this.userService.getFollows(this.appUser.$key).subscribe(
+      lista => {
+        for(let i=0;i<lista.length;i++){
+            if(lista[i].$value == this.id){
+                this.follow = true;
+                break;
+              }
+        }
+      }
+    );
   }
 
 
