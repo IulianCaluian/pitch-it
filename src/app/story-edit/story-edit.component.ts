@@ -47,8 +47,14 @@ if(mm<10) {mms = '0'+mm}
 let todayS = dds + '/' + mms + '/' + yyyy;
 console.log(todayS);
 
+let hh =  today.getHours();
+ mm = today.getMinutes();
+let timeS = hh + ':'+mm;
 
-    story.date = today;
+    story.ideaId = this.id;
+    story.idea = this.idea.title;
+    story.date = todayS;
+    story.time = timeS;
     story.ups = 0;
     story.downs = 0;
 

@@ -52,7 +52,15 @@ export class MyIdeasComponent implements OnInit ,OnDestroy{
   private applyFilters(){
     console.log("Mailul este : ----><----------");
     console.log(this.email);
-    this.myIdeas = this.ideas.filter(p => (p.owner.email == this.email));
+    this.myIdeas = new Array();
+    for(var i=0;i<this.ideas.length;i++){
+
+      if(this.ideas[i].owner.email == this.email){
+        //  console.log(this.ideas[i]);
+          this.myIdeas.push(this.ideas[i]);
+      }
+    }
+
     console.log(this.ideas);
     console.log(this.myIdeas);
     console.log(this.email);
@@ -61,6 +69,7 @@ export class MyIdeasComponent implements OnInit ,OnDestroy{
   ngOnInit() {
     this.ideaService.getAll().subscribe(ideas => {
       this.ideas = ideas;
+      console.log(ideas);
       this.applyFilters();
     });
 

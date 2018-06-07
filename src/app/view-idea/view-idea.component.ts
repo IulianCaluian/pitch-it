@@ -23,6 +23,7 @@ export class ViewIdeaComponent implements OnInit {
   mySubscription;
   appUser: AppUser = null;
   user;
+  key;
 
   constructor(
     private router: Router,
@@ -31,7 +32,7 @@ export class ViewIdeaComponent implements OnInit {
     private authService:AuthService,
     private userService:UserService
   ) {
-    authService.AppUser$.subscribe(appUser => this.appUser=appUser);
+    authService.AppUser$.subscribe(appUser => {console.log(appUser);this.key = appUser.$key;  this.appUser=appUser; });
     this.authService.user$.subscribe(user => {
       if (user) {
           this.user = user;
@@ -70,30 +71,30 @@ export class ViewIdeaComponent implements OnInit {
     if(this.mySubscription)
       this.mySubscription.unsubscribe();
     this.follow=true;
-    this.userService.pushFollow(this.appUser.$key,this.id);
+    this.userService.pushFollow(this.key,this.id);
   }
 
   unfollowS(){
     this.follow=false;
 
-    this.mySubscription = this.userService.getFollows(this.appUser.$key).subscribe(
+    this.mySubscription = this.userService.getFollows(this.key).subscribe(
       lista => {
         for(let i=0;i<lista.length;i++){
             if(lista[i].$value == this.id){
-                this.userService.deleteFollow(this.appUser.$key,lista[i].$key);
+                this.userService.deleteFollow(this.key,lista[i].$key);
                 break;
               }
         }
       }
     );
 
-  //  this.userService.deleteFollow(this.appUser.$key,this.id);
+  //  this.userService.deleteFollow(this.key,this.id);
 
   }
 
 
   ngOnInit() {
-    this.userService.getFollows(this.appUser.$key).subscribe(
+    this.userService.getFollows(this.key).subscribe(
       lista => {
         for(let i=0;i<lista.length;i++){
             if(lista[i].$value == this.id){

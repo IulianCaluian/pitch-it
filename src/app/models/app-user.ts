@@ -14,4 +14,5 @@ export interface AppUser {
   skills: string;
   gender: number;
   married: number;
+  $key: string;//TO DO
 }
